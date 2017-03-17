@@ -2,11 +2,10 @@ package com.dreamiii.bottomsheet;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
+import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.view.Window;
+import android.view.WindowManager;
 
 
 public class PhotoSelectFragment extends BottomSheetFragment implements View.OnClickListener {
@@ -33,6 +32,14 @@ public class PhotoSelectFragment extends BottomSheetFragment implements View.OnC
         return this;
     }
 
+    @Override
+    protected void dialogPosition(Window dialogWindow) {
+        dialogWindow.setGravity(Gravity.BOTTOM);
+        WindowManager.LayoutParams lp = dialogWindow.getAttributes();
+        lp.width = dialogWindow.getWindowManager().getDefaultDisplay().getWidth();
+        lp.y = 0;
+        dialogWindow.setAttributes(lp);
+    }
 
     public static PhotoSelectFragment newInstance() {
         PhotoSelectFragment fragment = new PhotoSelectFragment();

@@ -35,11 +35,15 @@ public abstract class BottomSheetFragment extends DialogFragment {
         setListener(root);
         dialog.setContentView(root);
         Window dialogWindow = dialog.getWindow();
+        dialogPosition(dialogWindow);
+        return dialog;
+    }
+
+    protected void dialogPosition(Window dialogWindow) {
         dialogWindow.setGravity(Gravity.BOTTOM);
         WindowManager.LayoutParams lp = dialogWindow.getAttributes();
         lp.y = 20;
         dialogWindow.setAttributes(lp);
-        return dialog;
     }
 
     public View setCustomView(int id){
