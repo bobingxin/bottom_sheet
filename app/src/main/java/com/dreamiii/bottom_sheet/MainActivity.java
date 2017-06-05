@@ -8,7 +8,7 @@ import com.dreamiii.bottomsheet.PhotoSelectFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, PhotoSelectFragment.PhotoSelectInterface {
 
-    PhotoSelectFragment mPhotoSelectFragment;
+    PhotoSelectFragment mAdFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,19 +21,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.bt_show:
-                mPhotoSelectFragment = PhotoSelectFragment.newInstance().setCallbackInterface(this);
-                mPhotoSelectFragment.show(getSupportFragmentManager(),"show");
+                mAdFragment = PhotoSelectFragment.newInstance();
+                mAdFragment.show(getSupportFragmentManager(),"show");
                 break;
         }
     }
 
     @Override
     public void takePhoto() {
-        mPhotoSelectFragment.dismiss();
+        mAdFragment.dismiss();
     }
 
     @Override
     public void choosePhoto() {
-        mPhotoSelectFragment.dismiss();
+        mAdFragment.dismiss();
     }
 }

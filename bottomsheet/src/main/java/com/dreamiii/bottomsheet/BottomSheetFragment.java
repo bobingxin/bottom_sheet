@@ -34,6 +34,7 @@ public abstract class BottomSheetFragment extends DialogFragment {
         View root = getCustomView();
         setListener(root);
         dialog.setContentView(root);
+        dialog.setCanceledOnTouchOutside(false);
         Window dialogWindow = dialog.getWindow();
         dialogPosition(dialogWindow);
         return dialog;
